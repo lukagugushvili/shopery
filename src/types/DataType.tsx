@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface Data {
   id: number;
   title: string;
@@ -13,4 +15,11 @@ export interface Data {
 
 export interface DataProps {
   products: Data[];
+}
+
+export interface ContextType {
+  setSelectedCategory: Dispatch<SetStateAction<string>>;
+  categories: string[];
+  productsFilterCopy: Data[];
+  selectedCategory: string;
 }
