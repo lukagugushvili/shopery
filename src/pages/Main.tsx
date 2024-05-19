@@ -3,13 +3,14 @@ import styled from "styled-components";
 import { ContextType, Data } from "../types/DataType";
 import { DataContext } from "../context/context";
 import Categories from "../components/Categories";
+import Cards from "../components/Cards";
 
 const Main = () => {
   const [products, setProducts] = useState<Data[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [productsPrice, setProductsPrice] = useState<number[]>([]);
-  const [productsFilterCopy, setProductsFilterCopy] = useState<Data[]>([]);
+  const [filteredProductCopy, setFilteredProductCopy] = useState<Data[]>([]);
 
   // Get Products Data
   useEffect(() => {
@@ -59,27 +60,21 @@ const Main = () => {
         : products.filter((el) => el.category === selectedCategory);
     // sorted products with price
     productsFilter.sort((a, b) => a.price - b.price);
-    setProductsFilterCopy(productsFilter);
+    setFilteredProductCopy(productsFilter);
   }, [products, selectedCategory]);
 
   const value: ContextType = {
     setSelectedCategory,
     selectedCategory,
     categories,
-    productsFilterCopy,
+    filteredProductCopy,
   };
 
   return (
     <Wrapper>
       <DataContext.Provider value={value}>
         <Categories />
-        {productsFilterCopy.map((el) => (
-          <li>
-            <p>
-              {el.category}\{el.price}
-            </p>
-          </li>
-        ))}
+        <Cards />
       </DataContext.Provider>
     </Wrapper>
   );
@@ -89,6 +84,5 @@ export default Main;
 
 const Wrapper = styled.div`
   display: flex;
-  align-items: center;
   gap: 50px;
 `;

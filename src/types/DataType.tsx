@@ -20,6 +20,6 @@ export interface DataProps {
 export interface ContextType {
   setSelectedCategory: Dispatch<SetStateAction<string>>;
   categories: string[];
-  productsFilterCopy: Data[];
+  filteredProductCopy: Data[];
   selectedCategory: string;
 }

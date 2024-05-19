@@ -1,7 +1,7 @@
 import React from "react";
 import { useDataContext } from "../context/context";
 import styled from "styled-components";
-import { CategoryItem, CategoryList } from "../styles/CardsStyles";
+import { CategoryItem, CategoryList } from "../styles/CategoriesStyles";
 
 const Categories = () => {
   const { categories, setSelectedCategory, selectedCategory } =
