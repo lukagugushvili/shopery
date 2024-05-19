@@ -1,18 +1,28 @@
 import styled from "styled-components";
 
+export const CardBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  & h2 {
+    text-align: right;
+  }
+
+  & h2 span {
+    padding-left: 5px;
+    color: #e6e6e6;
+  }
+`;
+
 export const CardList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
   gap: 20px;
-  justify-items: center;
-
-  /* display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px; */
 `;
 
 export const Card = styled.li`
-  padding: 10px;
+  padding: 35px 20px 20px 20px;
   cursor: pointer;
 
   display: flex;
@@ -20,7 +30,6 @@ export const Card = styled.li`
   justify-content: space-between;
   gap: 50px;
   height: 100%;
-  padding: 35px 20px 20px 20px;
 
   border: 1px solid #e6e6e6;
   border-radius: 8px;
@@ -56,4 +65,10 @@ export const Card = styled.li`
     font-weight: 500;
     color: #1a1a1a;
   }
+`;
+
+export const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+  line-height: 27px;
 `;

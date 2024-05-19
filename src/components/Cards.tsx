@@ -1,25 +1,30 @@
 import React from "react";
 import { useDataContext } from "../context/context";
-import { Card, CardList } from "../styles/CardsStyles";
+import { Card, CardBox, CardList, Description } from "../styles/CardsStyles";
+import Stars from "../utils/Stars";
 
 const Cards = () => {
   const { filteredProductCopy } = useDataContext();
 
   return (
-    <div>
+    <CardBox>
+      <h2>
+        {filteredProductCopy.length}
+        <span>Results Found</span>
+      </h2>
       <CardList>
         {filteredProductCopy.map((el) => (
           <Card key={el.id}>
             <img src={el.image} alt={el.title} />
-            <div>
+            <Description>
               <h6>{el.title}</h6>
               <p>${el.price}</p>
-              <span>{el.rating.rate}</span>
-            </div>
+              <Stars rating={el.rating.rate} />
+            </Description>
           </Card>
         ))}
       </CardList>
-    </div>
+    </CardBox>
   );
 };
 

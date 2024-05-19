@@ -23,3 +23,7 @@ export interface ContextType {
   filteredProductCopy: Data[];
   selectedCategory: string;
 }
+
+export interface RatingProp {
+  rating: number;
+}

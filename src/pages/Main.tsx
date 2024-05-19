@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import { ContextType, Data } from "../types/DataType";
 import { DataContext } from "../context/context";
 import Categories from "../components/Categories";
 import Cards from "../components/Cards";
 import { Container } from "../styles/ContainerStyles";
+import { Wrapper } from "../styles/MainPageStyles";
 
 const Main = () => {
   const [products, setProducts] = useState<Data[]>([]);
@@ -84,8 +84,3 @@ const Main = () => {
 };
 
 export default Main;
-
-const Wrapper = styled.div`
-  display: flex;
-  gap: 50px;
-`;
