@@ -4,6 +4,7 @@ import { ContextType, Data } from "../types/DataType";
 import { DataContext } from "../context/context";
 import Categories from "../components/Categories";
 import Cards from "../components/Cards";
+import { Container } from "../styles/ContainerStyles";
 
 const Main = () => {
   const [products, setProducts] = useState<Data[]>([]);
@@ -71,12 +72,14 @@ const Main = () => {
   };
 
   return (
-    <Wrapper>
-      <DataContext.Provider value={value}>
-        <Categories />
-        <Cards />
-      </DataContext.Provider>
-    </Wrapper>
+    <Container>
+      <Wrapper>
+        <DataContext.Provider value={value}>
+          <Categories />
+          <Cards />
+        </DataContext.Provider>
+      </Wrapper>
+    </Container>
   );
 };
 

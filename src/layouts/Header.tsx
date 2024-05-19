@@ -2,15 +2,18 @@ import React from "react";
 import { IoHome } from "react-icons/io5";
 import { IoIosArrowForward } from "react-icons/io";
 import styled from "styled-components";
+import { Container } from "../styles/ContainerStyles";
 
 const Header = () => {
   return (
-    <HeaderCon>
-      <IoHome />
-      <IoIosArrowForward />
-      <p>Categories</p>
-      <IoIosArrowForward />
-    </HeaderCon>
+    <Container>
+      <HeaderCon>
+        <IoHome />
+        <IoIosArrowForward />
+        <p>Categories</p>
+        <IoIosArrowForward />
+      </HeaderCon>
+    </Container>
   );
 };
 
