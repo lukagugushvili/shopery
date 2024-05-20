@@ -7,6 +7,7 @@ import { Container } from "../styles/ContainerStyles";
 import { Wrapper } from "../styles/MainPageStyles";
 import Loader from "../utils/Loader";
 import { LoaderBox } from "../styles/LoaderStyles";
+import { ErrorCon } from "../styles/ErrorMsgStyles";
 
 const Main = () => {
   const [products, setProducts] = useState<Data[]>([]);
@@ -15,19 +16,28 @@ const Main = () => {
   const [productsPrice, setProductsPrice] = useState<number[]>([]);
   const [filteredProductCopy, setFilteredProductCopy] = useState<Data[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showError, setShowError] = useState<string | null>(null);
 
   // Get Products Data
   useEffect(() => {
     const fetchData = async () => {
       const API_URL = "https://fakestoreapi.com/products";
+      setIsLoading(true);
       try {
-        setIsLoading(true);
         const res = await fetch(`${API_URL}`);
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
         const data = await res.json();
         setProducts(data);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          setShowError(error.message);
+        } else {
+          setShowError("An unknown error occurred");
+        }
+      } finally {
         setIsLoading(false);
-      } catch (e) {
-        console.log(e);
       }
     };
 
@@ -82,6 +92,10 @@ const Main = () => {
         <Loader />
       </LoaderBox>
     );
+  }
+
+  if (showError) {
+    return <ErrorCon>Something went wrong! Please try again.</ErrorCon>;
   }
 
   return (
