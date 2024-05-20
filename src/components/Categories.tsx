@@ -10,9 +10,11 @@ const Categories = () => {
   const handleChangeCategory = (category: string) => {
     setSelectedCategory(category);
   };
+
   return (
     <div>
       <CategoryList>
+        <h2>All category</h2>
         {categories.map((el, index) => (
           <li key={index}>
             <CategoryItem

@@ -6,6 +6,13 @@ export const CategoryList = styled.ul`
   gap: 5px;
   border-bottom: 2px solid gray;
   padding-bottom: 10px;
+
+  & h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #1a1a1a;
+    padding-bottom: 10px;
+  }
 `;
 
 export const CategoryItem = styled.p<{ selected: boolean }>`

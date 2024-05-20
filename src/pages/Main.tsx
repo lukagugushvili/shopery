@@ -5,6 +5,8 @@ import Categories from "../components/Categories";
 import Cards from "../components/Cards";
 import { Container } from "../styles/ContainerStyles";
 import { Wrapper } from "../styles/MainPageStyles";
+import Loader from "../utils/Loader";
+import { LoaderBox } from "../styles/LoaderStyles";
 
 const Main = () => {
   const [products, setProducts] = useState<Data[]>([]);
@@ -12,15 +14,18 @@ const Main = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [productsPrice, setProductsPrice] = useState<number[]>([]);
   const [filteredProductCopy, setFilteredProductCopy] = useState<Data[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   // Get Products Data
   useEffect(() => {
     const fetchData = async () => {
       const API_URL = "https://fakestoreapi.com/products";
       try {
+        setIsLoading(true);
         const res = await fetch(`${API_URL}`);
         const data = await res.json();
         setProducts(data);
+        setIsLoading(false);
       } catch (e) {
         console.log(e);
       }
@@ -70,6 +75,14 @@ const Main = () => {
     categories,
     filteredProductCopy,
   };
+
+  if (isLoading) {
+    return (
+      <LoaderBox>
+        <Loader />
+      </LoaderBox>
+    );
+  }
 
   return (
     <Container>
