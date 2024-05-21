@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useDataContext } from "../context/context";
 import {
   MdOutlineStarPurple500,
   MdOutlineStarHalf,
   MdOutlineStarOutline,
 } from "react-icons/md";
-import { FaRegStarHalfStroke } from "react-icons/fa6";
-import { Data, RatingProp } from "../types/DataType";
+import { RatingProp } from "../types/DataType";
 
 const Stars = ({ rating }: RatingProp) => {
   const [stars, setStars] = useState<JSX.Element[]>([]);
@@ -19,7 +17,6 @@ const Stars = ({ rating }: RatingProp) => {
           starsBox.push(<MdOutlineStarPurple500 key={i} color="gold" />);
         } else if (i - rating === 0.5) {
           starsBox.push(<MdOutlineStarHalf key={i} color="gold" />);
-          console.log(starsBox);
         } else {
           starsBox.push(<MdOutlineStarOutline key={i} color="gold" />);
         }

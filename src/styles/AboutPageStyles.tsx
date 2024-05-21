@@ -23,11 +23,6 @@ export const AboutCard = styled.div`
 export const ImgContent = styled.div`
   flex: 1;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 60px;
 
   & img {
     width: 50%;

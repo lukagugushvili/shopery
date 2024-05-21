@@ -3,14 +3,12 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./pages/About";
-import Header from "./layouts/Header";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <>
-        <Header />
         <App />
       </>
     ),
@@ -19,7 +17,6 @@ const router = createBrowserRouter([
     path: "/about/:id",
     element: (
       <>
-        <Header />
         <About />
       </>
     ),

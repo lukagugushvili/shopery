@@ -13,7 +13,7 @@ import {
   Line,
 } from "../styles/AboutPageStyles";
 import { Container } from "../styles/ContainerStyles";
-import { IoHome } from "react-icons/io5";
+import Header from "../layouts/Header";
 
 const About = () => {
   const { id } = useParams();
@@ -59,12 +59,12 @@ const About = () => {
 
   return (
     <Container>
+      <Header title={product?.title} category={product?.category} />
       <AboutBox>
         {product && (
           <AboutCard>
             <ImgContent>
               <img src={product.image} alt={product.title} />
-              <IoHome />
             </ImgContent>
             <AboutProduct>
               <h1>{product.title}</h1>

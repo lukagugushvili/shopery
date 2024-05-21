@@ -8,6 +8,7 @@ import { Wrapper } from "../styles/MainPageStyles";
 import Loader from "../utils/Loader";
 import { LoaderBox } from "../styles/LoaderStyles";
 import { ErrorCon } from "../styles/ErrorMsgStyles";
+import Header from "../layouts/Header";
 
 const Main = () => {
   const [products, setProducts] = useState<Data[]>([]);
@@ -100,6 +101,7 @@ const Main = () => {
 
   return (
     <Container>
+      <Header selectedCategory={selectedCategory} />
       <Wrapper>
         <DataContext.Provider value={value}>
           <Categories />
