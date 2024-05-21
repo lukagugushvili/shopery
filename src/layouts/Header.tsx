@@ -3,12 +3,19 @@ import { IoHome } from "react-icons/io5";
 import { IoIosArrowForward } from "react-icons/io";
 import styled from "styled-components";
 import { Container } from "../styles/ContainerStyles";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const productGate = useNavigate();
+
+  const handleBackToProducts = () => {
+    productGate("/");
+  };
+
   return (
     <Container>
       <HeaderCon>
-        <IoHome />
+        <IoHome onClick={handleBackToProducts} style={{ cursor: "pointer" }} />
         <IoIosArrowForward />
         <p>Categories</p>
         <IoIosArrowForward />

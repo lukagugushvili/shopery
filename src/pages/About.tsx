@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Data } from "../types/DataType";
 import { ErrorCon } from "../styles/ErrorMsgStyles";
 import { LoaderBox } from "../styles/LoaderStyles";
@@ -8,12 +8,12 @@ import {
   AboutBox,
   AboutCard,
   AboutProduct,
-  BackClick,
   ErrMsg,
   ImgContent,
   Line,
 } from "../styles/AboutPageStyles";
 import { Container } from "../styles/ContainerStyles";
+import { IoHome } from "react-icons/io5";
 
 const About = () => {
   const { id } = useParams();
@@ -64,6 +64,7 @@ const About = () => {
           <AboutCard>
             <ImgContent>
               <img src={product.image} alt={product.title} />
+              <IoHome />
             </ImgContent>
             <AboutProduct>
               <h1>{product.title}</h1>
@@ -79,7 +80,7 @@ const About = () => {
             </AboutProduct>
           </AboutCard>
         )}
-      </AboutBox>{" "}
+      </AboutBox>
     </Container>
   );
 };
